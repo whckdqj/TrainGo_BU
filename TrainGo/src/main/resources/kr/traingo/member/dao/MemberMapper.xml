@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.traingo.member.dao.MemberMapper">
+    <select id="getMemberList" parameterType="map" resultType="memberCommand">
+		SELECT
+		  *
+		FROM (SELECT
+				a.*,
+				rownum rnum
+			  FROM (SELECT
+			  		  *
+			  		FROM fmember
+			  		ORDER BY reg_date DESC)a)
+		<![CDATA[	  		
+		WHERE rnum >= #{start} AND rnum <= #{end}
+		]]>
+	</select>
+	
+	<!-- <select id="getMemberCount" resultType="integer">
+		SELECT
+			count(*)
+		FROM fmember	
+	</select>
+	
+	<insert id="insertMember" parameterType="memberCommand">
+		INSERT INTO zmember(
+			id,
+			name,
+			passwd,
+			reg_date)
+		VALUES (
+			#{id},
+			#{name},
+			#{passwd},
+			sysdate)
+	</insert>
+	
+	<select id="getMember" parameterType="string" resultType="memberCommand">
+		SELECT
+		   *
+		FROM fmember
+		WHERE id = #{id}	
+	</select>
+	
+	<update id="updateMember" parameterType="memberCommand">
+		UPDATE fmember
+		SET
+		  passwd=${passwd},
+		  name=#{name}
+		WHERE id=#{id}  
+	</update>
+	
+	<delete id="deleteMember" parameterType="string">
+		DELETE FROM fmember
+		WHERE id = #{id}
+	</delete> -->
+    
+</mapper>
