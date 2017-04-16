@@ -35,7 +35,7 @@
 						<li><a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a></li>
 					</ul></li>
 				</c:if>
-				<li><a href="${pageContext.request.contextPath}/contents/reserve/resv_main.do">예매</a></li>
+				<li><a href="${pageContext.request.contextPath}/resv_main.do">예매</a></li>
 				<li><a href="${pageContext.request.contextPath}/contents/table/table.do">시간표</a></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-expanded="false">게시판

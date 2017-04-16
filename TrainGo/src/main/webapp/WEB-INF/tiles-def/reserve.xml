@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+       
+
+<tiles-definitions>
+
+
+	<definition name="trainlist" extends="main">
+		<put-attribute name="title" value="예매" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/reserve/trainlist.jsp" />
+	</definition>
+
+	<definition name="SelectSeatForm" extends="main">
+		<put-attribute name="title" value="예매" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/reserve/SelectSeatForm.jsp" />
+	</definition>
+
+
+	<definition name="TicketListForm" extends="main">
+		<put-attribute name="title" value="예매" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/reserve/TicketListForm.jsp" />
+	</definition> 
+	
+	
+</tiles-definitions>
+
+
+       

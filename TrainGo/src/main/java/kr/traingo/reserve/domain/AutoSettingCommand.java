@@ -1,0 +1,26 @@
+package kr.traingo.reserve.domain;
+
+public class AutoSettingCommand {
+	int value; 
+	String name;
+	
+	
+	
+	public int getValue() {
+		return value;
+	}
+	public void setValue(int value) {
+		this.value = value;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
+	
+	
+
+}

@@ -69,7 +69,7 @@
     <!-- MyBatis Configuration -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="typeAliasesPackage" value="kr.traingo.domain, kr.traingo.table.domain, kr.traingo.member.domain"/>  
+        <property name="typeAliasesPackage" value="kr.traingo.domain, kr.traingo.table.domain, kr.traingo.member.domain, kr.traingo.reserve.domain"/>  
     </bean>
     <!-- <bean id="dbaSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dbaDataSource"/>
@@ -78,7 +78,7 @@
     
     <!-- MyBatis Mapper -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="kr.traingo.dao, kr.traingo.table.dao, kr.traingo.member.dao"/>
+        <property name="basePackage" value="kr.traingo.dao, kr.traingo.table.dao, kr.traingo.member.dao, kr.traingo.reserve.dao"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
     <!-- <bean id="dbaScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
