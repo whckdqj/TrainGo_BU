@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: user2
 Build-Jdk: 1.8.0_111
+=======
+Built-By: whckd
+Build-Jdk: 1.8.0_121
+>>>>>>> branch 'master' of https://github.com/whckdqj/TrainGo_BU.git
 Created-By: Maven Integration for Eclipse
 
