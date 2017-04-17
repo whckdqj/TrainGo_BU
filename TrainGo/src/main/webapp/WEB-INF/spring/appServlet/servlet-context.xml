@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Component Auto Scan -->
+    <context:component-scan base-package="kr.traingo.controller" />
+    <context:component-scan base-package="kr.traingo.member.controller" />
+    <context:component-scan base-package="kr.traingo.board.controller" />
+    <context:component-scan base-package="kr.traingo.reserve.controller" />
+    <context:component-scan base-package="kr.traingo.table.controller" />
+    
+    <!-- Main View Controll -->
+    <view-controller path="/home.do" view-name="main"/>
+    
+    <!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+    
+    <!-- Exception Configuration : Order(0) -->
+    <beans:bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <beans:property name="order" value="0"/>
+        <beans:property name="exceptionMappings">
+            <beans:props>
+                <beans:prop key="java.lang.Throwable">pageError</beans:prop>
+            </beans:props>
+        </beans:property>
+    </beans:bean>
+    
+    <!-- File Download Controll : Order(0) -->
+    <beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+        <beans:property name="order" value="0"/>
+    </beans:bean>
+    
+    <!-- tiles Component Merge Page Callback : Order(1) -->
+    <beans:bean
+      class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+        <beans:property name="order" value="1"/>
+    </beans:bean>
+    
+    <!-- Callback JSP for XML,JSON Handle when Popup/Ajax Communication : Order(2) -->
+    <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <beans:property name="prefix" value="/WEB-INF/views/" />
+        <beans:property name="suffix" value=".jsp" />
+        <beans:property name="order" value="2"/>
+    </beans:bean>
+	
+	<!-- messageSource for Validator -->
+    <beans:bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <beans:property name="basenames">
+            <beans:list>
+                <beans:value>messages.validation</beans:value>
+            </beans:list>
+        </beans:property>
+    </beans:bean>
+	
+    <!-- tiles Configuration -->
+    <beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <beans:property name="definitions">
+            <beans:list>
+                <!-- if the property is not only, list below -->
+                <beans:value>/WEB-INF/tiles-def/main.xml</beans:value>
+                <beans:value>/WEB-INF/tiles-def/member.xml</beans:value>
+                <beans:value>/WEB-INF/tiles-def/board.xml</beans:value>
+                <beans:value>/WEB-INF/tiles-def/table.xml</beans:value>
+                <beans:value>/WEB-INF/tiles-def/reserve.xml</beans:value>
+            </beans:list>
+        </beans:property>
+    </beans:bean>
+    
+    
+    <!-- File Upload Controll -->
+    <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- MaxUploadSize : 100MByte -->
+        <beans:property name="maxUploadSize" value="104857600"/>
+        <beans:property name="defaultEncoding" value="UTF-8"/>
+    </beans:bean>
+    
+    <!-- Interceptor Controll -->
+    <interceptors>
+        <interceptor>
+            <mapping path="/pageAdmin.do"/>
+            <beans:bean class="kr.traingo.interceptor.LoginCheckInterceptor"/>
+        </interceptor>
+    </interceptors>
+</beans:beans>

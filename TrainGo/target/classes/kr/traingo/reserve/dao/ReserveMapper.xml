@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.traingo.reserve.dao.ReserveMapper">
+	<!--포 이치 써서 데이터 넘기는 건 일단 보류하겠음 시퀀스가 안되거나 500넘어가면 에러나는 등 안좋은 점이 너무 많고, 해결 
+		방법을 모르겠음 <insert id="insertAutoTrain" parameterType="java.util.List"> INSERT 
+		ALL <foreach collection="list" item="item" index="index" separator="" open="" 
+		close=""> Into autotrain (trainnum,trainname,seats,departsta,departtime,arrivalsta,arrivaltime,charge) 
+		values (#{index}, #{item.trainGradeName}, 240, #{item.depPlaceName}, to_date(#{item.depPlandTime},'yyyy-mm-dd 
+		hh24:mi'), #{item.arrPlaceName}, to_date(#{item.arrPlandTime},'yyyy-mm-dd 
+		hh24:mi'), #{item.adultCharge}) </foreach> SELECT * FROM dual </insert> -->
+
+
+
+
+	<!-- 인서트 올은 500개가 넘어가면 문제가 생김.대량 데이터 쓸 때는 안쓰는 게 나음 <insert id="MakeSeat" 
+		parameterType="java.util.List"> INSERT ALL <foreach collection="list" item="item" 
+		index="index" separator="" open="" close=""> Into seats (trainnum,seatnum) 
+		values (#{item.trainnum},#{item.seatnum}) </foreach> SELECT * FROM dual </insert> -->
+
+
+
+	<insert id="inserttest" parameterType="java.util.List">
+
+		INSERT ALL
+
+		<foreach collection="list" item="item" index="index"
+			separator="" open="" close="">
+			INTO test (id,name) VALUES (#{item.id},#{item.name})
+		</foreach>
+		SELECT * FROM dual
+
+	</insert>
+    
+</mapper>

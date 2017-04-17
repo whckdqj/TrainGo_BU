@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<definition name="insertDB" extends="main">
+		<put-attribute name="title" value="입력시험"/>
+		<put-attribute name="body" value="/WEB-INF/views/testing/insertDB.jsp"/>
+	</definition>
+    
+    <definition name="fileDB" extends="main">
+        <put-attribute name="title" value="파일시험"/>
+        <put-attribute name="body" value="/WEB-INF/views/testing/fileDB.jsp"/>
+    </definition>
+    
+    <definition name="theView" extends="main">
+        <put-attribute name="title" value="뷰시험"/>
+        <put-attribute name="body" value="/WEB-INF/views/testing/theView.jsp"/>
+    </definition>
+    
+    <definition name="memberWrite" extends="main">
+		<put-attribute name="title" value="회원가입"/>
+		<put-attribute name="body" value="/WEB-INF/views/member/memberWrite.jsp"/>
+	</definition>
+	
+	<definition name="memberView" extends="main">
+		<put-attribute name="title" value="회원상세정보"/>
+		<put-attribute name="body" value="/WEB-INF/views/member/memberView.jsp"/>
+	</definition>
+	
+	<definition name="memberLogin" extends="main">
+		<put-attribute name="title" value="회원로그인"/>
+		<put-attribute name="body" value="/WEB-INF/views/member/memberLogin.jsp"/>
+	</definition>
+	
+	<definition name="memberModify" extends="main">
+		<put-attribute name="title" value="회원정보 수정"/>
+		<put-attribute name="body" value="/WEB-INF/views/member/memberModify.jsp"/>
+	</definition>
+	
+	<definition name="memberDelete" extends="main">
+		<put-attribute name="title" value="회원탈퇴"/>
+		<put-attribute name="body" value="/WEB-INF/views/member/memberDelete.jsp"/>
+	</definition>
+		
+	<definition name="selectList" extends="main">
+		<put-attribute name="title" value="회원목록"/>
+		<put-attribute name="body" value="/WEB-INF/views/member/selectList.jsp"/>
+	</definition>
+	
+	<definition name="selectDetail" extends="main">
+		<put-attribute name="title" value="회원목록 상세"/>
+		<put-attribute name="body" value="/WEB-INF/views/member/selectDetail.jsp"/>
+	</definition>
+	
+	<definition name="updateForm" extends="main">
+		<put-attribute name="title" value="회원목록 수정"/>
+		<put-attribute name="body" value="/WEB-INF/views/member/updateForm.jsp"/>
+	</definition>
+	
+	<definition name="deleteForm" extends="main">
+		<put-attribute name="title" value="회원목록 삭제"/>
+		<put-attribute name="body" value="/WEB-INF/views/member/deleteForm.jsp"/>
+	</definition>
+</tiles-definitions>
+
+
+
+
+
+
+
+
+
+
+

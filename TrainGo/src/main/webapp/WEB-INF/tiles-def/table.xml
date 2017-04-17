@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <!-- For Testing -->
+    <definition name="viewCtyCode" extends="main">
+        <put-attribute name="title" value="도시코드"/>
+        <put-attribute name="body" value="/WEB-INF/views/testing/ctyCode.jsp"/>
+    </definition>
+    <!-- For Testing -->
+    <definition name="viewTable" extends="main">
+        <put-attribute name="title" value="열차시간표"/>
+        <put-attribute name="body" value="/WEB-INF/views/table/table.jsp"/>
+    </definition>
+</tiles-definitions>

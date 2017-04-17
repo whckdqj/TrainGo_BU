@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.traingo.table.dao.TableMapper">
+    <!-- City Code Mapper Setting -->
+    <insert id="insertCtyCodeList" parameterType="CtyCodeListCommand">
+        INSERT INTO CTYCODELIST (CITYCODE, CITYNAME) 
+        VALUES (#{cityCode}, #{cityName})
+    </insert>
+    
+    <select id="selectCtyCodeListAll" resultType="CtyCodeListCommand">
+        SELECT * FROM CTYCODELIST ORDER BY CITYCODE ASC
+    </select>
+    <select id="selectCtyCodeOnly" resultType="String">
+        SELECT CITYCODE FROM CTYCODELIST ORDER BY CITYCODE ASC
+    </select>
+    <!-- City Code Mapper Setting -->
+    
+    <!-- Vhcle Knd Mapper Setting -->
+    <insert id="insertVhcleKndList" parameterType="VhcleKndListCommand">
+        INSERT INTO VHCLEKNDLIST (VEHICLEKNDID, VEHICLEKNDNM) 
+        VALUES (#{vehicleKndId}, #{vehicleKndNm})
+    </insert>
+    
+    <select id="selectVhcleKndListAll" resultType="VhcleKndListCommand">
+        SELECT * FROM VHCLEKNDLIST ORDER BY VEHICLEKNDID ASC
+    </select>
+    <!-- Vhcle Knd Mapper Setting -->
+    
+    <!-- Station Code Mapper Setting -->
+    <insert id="insertSttnCodeList" parameterType="TrainSttnListCommand">
+        INSERT INTO CTYACCTOTRAINSTTNLIST (NODEID, NODENAME, CITYCODE) 
+        VALUES (#{nodeId}, #{nodeName}, #{cityCode})
+    </insert>
+    
+    <select id="selectSttnCodeListAll" resultType="TrainSttnListCommand">
+        SELECT * FROM CTYACCTOTRAINSTTNLIST ORDER BY NODEID ASC
+    </select>
+    <select id="selectSttnCodeByCtyCode" parameterType="String" resultType="TrainSttnListCommand">
+        SELECT * FROM CTYACCTOTRAINSTTNLIST
+        WHERE CITYCODE=#{ctyCode} ORDER BY NODEID ASC
+    </select>
+    <!-- Station Code Mapper Setting -->
+</mapper>

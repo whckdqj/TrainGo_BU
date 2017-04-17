@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.traingo.dao.TheMapper">
+    <select id="getTableInfo" parameterType="kr.traingo.domain.DbaCommand" resultType="kr.traingo.domain.DbaCommand">
+        SELECT 
+            * 
+        FROM DBA_OBJECTS
+        WHERE OWNER=#{owner} AND OBJECT_NAME=#{object_name}
+    </select>
+    
+    <select id="selectHistory" parameterType="string" resultType="kr.traingo.domain.TableAdminCommand">
+        SELECT
+          TABLENAME
+          , CREATED
+          , MODIFIED
+          , LAST_CALLED
+          , ACCESS_OBJECT
+        FROM TABLEMANAGER WHERE TABLENAME=#{tableName}
+    </select>
+    
+    <select id="updateHistory" parameterType="kr.traingo.domain.TableAdminCommand">
+        UPDATE TABLEMANAGER 
+        SET MODIFIED=#{modified}, LAST_CALLED=#{last_called}, ACCESS_OBJECT=#{access_object}
+        WHERE TABLENAME=#{tableName}
+    </select>
+    
+    <select id="selectAdminLevel" parameterType="string" resultType="kr.traingo.domain.FmemberCommand">
+    	SELECT
+    	  *
+    	FROM FMEMBER 
+    	WHERE ID=#{id}
+    </select>
+    
+</mapper>
